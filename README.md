@@ -28,7 +28,7 @@ This is a Java backend application built for the Accesa Internship 2025 coding c
 
 ## Tech Stack
 
-- Java 17
+- Java 21
 - Spring Boot
 - Maven
 - Spring Data JPA
@@ -50,8 +50,7 @@ src
 │   │       ├── entity          # Domain models
 │   │       ├── repository      # CSV-backed data access
 │   │       └── service         # Business logic
-│   └── resources
-│       └── data/               # Sample CSV data (products & discounts)
+│   └── data                    # Sample CSV data (products & discounts)            
 ```
 ---
 
