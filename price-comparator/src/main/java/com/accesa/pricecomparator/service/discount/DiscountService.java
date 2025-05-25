@@ -1,10 +1,10 @@
-package com.accesa.pricecomparator.service;
+package com.accesa.pricecomparator.service.discount;
 
 import java.time.LocalDate;
 import java.util.List;
 
-import com.accesa.pricecomparator.dto.NewDiscountDto;
-import com.accesa.pricecomparator.dto.TopDiscountDto;
+import com.accesa.pricecomparator.dto.discount.NewDiscountDto;
+import com.accesa.pricecomparator.dto.discount.TopDiscountDto;
 
 public interface DiscountService {
 	

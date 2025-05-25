@@ -5,7 +5,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
-import com.accesa.pricecomparator.service.DataLoaderService;
+import com.accesa.pricecomparator.service.dataloader.DataLoaderService;
 
 import jakarta.persistence.EntityManager;
 

@@ -1,4 +1,4 @@
-package com.accesa.pricecomparator.service;
+package com.accesa.pricecomparator.service.discount;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -8,8 +8,8 @@ import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
-import com.accesa.pricecomparator.dto.NewDiscountDto;
-import com.accesa.pricecomparator.dto.TopDiscountDto;
+import com.accesa.pricecomparator.dto.discount.NewDiscountDto;
+import com.accesa.pricecomparator.dto.discount.TopDiscountDto;
 import com.accesa.pricecomparator.entity.Discount;
 import com.accesa.pricecomparator.entity.ProductPrice;
 import com.accesa.pricecomparator.repository.DiscountRepository;

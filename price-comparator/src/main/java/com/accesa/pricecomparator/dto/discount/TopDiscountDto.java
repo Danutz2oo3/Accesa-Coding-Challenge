@@ -1,18 +1,16 @@
-package com.accesa.pricecomparator.dto;
-
-import java.time.LocalDate;
+package com.accesa.pricecomparator.dto.discount;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
 @Data
 @AllArgsConstructor
-public class NewDiscountDto {
+public class TopDiscountDto {
     private String productId;
     private String productName;
+    private String brand;
     private String store;
-    private LocalDate fromDate;
-    private LocalDate toDate;
+    private double originalPrice;
     private double discountPercent;
+    private double finalPrice;
 }
-

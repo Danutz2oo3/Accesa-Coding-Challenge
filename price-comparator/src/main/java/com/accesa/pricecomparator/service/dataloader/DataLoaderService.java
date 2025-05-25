@@ -1,4 +1,4 @@
-package com.accesa.pricecomparator.service;
+package com.accesa.pricecomparator.service.dataloader;
 
 public interface DataLoaderService {
 
