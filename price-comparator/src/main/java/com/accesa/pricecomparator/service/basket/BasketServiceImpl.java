@@ -61,12 +61,13 @@ public class BasketServiceImpl implements BasketService {
 	
 	@Override
 	public List<SubstituteProductDto> getSubstitutes(String productId, LocalDate date) {
-	    ProductPrice base = productPriceRepository.findFirstByProductIdAndDate(productId, date)
-	            .orElseThrow(() -> new RuntimeException("Product not found on given date"));
+	    List<ProductPrice> entries = productPriceRepository.findByProductIdAndDate(productId, date);
 
-	    List<ProductPrice> substitutes = productPriceRepository.findSubstitutes(base.getCategory(), productId, date);
+	    if (entries.isEmpty()) {
+	        throw new RuntimeException("No products found for productId " + productId + " on date " + date);
+	    }
 
-	    return substitutes.stream().map(p -> {
+	    return entries.stream().map(p -> {
 	        double basePrice = p.getPrice();
 	        double quantity = p.getPackageQuantity();
 	        String unit = p.getPackageUnit();
@@ -84,7 +85,6 @@ public class BasketServiceImpl implements BasketService {
 	            isDiscounted = true;
 	        }
 
-	        // avoid division by 0
 	        double valuePerUnit = quantity > 0
 	                ? Math.round((finalPrice / quantity) * 100.0) / 100.0
 	                : 0.0;
@@ -102,7 +102,7 @@ public class BasketServiceImpl implements BasketService {
 	                unit,
 	                valuePerUnit
 	        );
-	    }).sorted(Comparator.comparingDouble(dto -> dto.getValuePerUnit()))
+	    }).sorted(Comparator.comparingDouble(SubstituteProductDto::getValuePerUnit))
 	      .toList();
 	}
 
