@@ -24,4 +24,6 @@ public interface DiscountRepository extends JpaRepository<Discount, UUID>{
 	@Query("SELECT d FROM Discount d WHERE d.fromDate >= :since")
 	List<Discount> findDiscountsStartingAfter(@Param("since") LocalDate since);
 
+	List<Discount> findByFromDate(LocalDate fromDate);
+
 }

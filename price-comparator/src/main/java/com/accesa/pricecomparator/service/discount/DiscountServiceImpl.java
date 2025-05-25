@@ -60,8 +60,7 @@ public class DiscountServiceImpl implements DiscountService {
 
 	@Override
 	public List<NewDiscountDto> getRecentDiscounts(LocalDate date) {
-		LocalDate since = date.minusDays(1);
-	    return discountRepo.findDiscountsStartingAfter(since).stream()
+	    return discountRepo.findByFromDate(date).stream()
 	        .map(d -> new NewDiscountDto(
 	            d.getProductId(),
 	            d.getProductName(),
@@ -72,4 +71,5 @@ public class DiscountServiceImpl implements DiscountService {
 	        ))
 	        .toList();
 	}
+
 }
